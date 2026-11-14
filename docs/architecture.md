@@ -73,28 +73,26 @@ The CLI discovers anything in `commands/` (and later a user plugin folder) autom
 ### config
 One `ase.toml` with paths, cache layout (`CACHE_ASE/PVP`, `CACHE_ASE/PVE`, branch folders), worker counts, and caps. Personal stuff like Steam IDs and character names goes in `config.local.toml`, which is gitignored.
 
-## Where today's scripts land
+## Where things live now
 
-| Script | Becomes |
+| Original | Package |
 |---|---|
-| `arkextract.py` | `core/*` + `commands/tamed.py` |
-| `arkprobe.py` | `tools/probe.py` (dev tool, kept for format research) |
-| `dinodump_decode.py` | `core/cryopod.py` |
-| `dinodump_build.py` | `model/dino.py` + `commands/build.py` + `exporters/sqlite.py` |
-| `dinodump_batch.py` | `server/batch.py` (the plugin path stays as a fallback and verifier) |
-| `sort_saves.py` | `commands/sort.py` |
-| `dumpzip.py` | `server/dumpzip.py` |
-| `arkcensus.py` | `commands/census.py` |
-| `arkservers.py` | `commands/servers.py` |
-| `arkstats.py` / `arkrank.py` / `arkmissing.py` | `commands/stats.py`, `rank.py`, `missing.py` |
-| `arkitems.py` | `commands/items.py` |
-| `arkfindme.py` | `commands/findme.py` (IDs from config.local) |
-| DinoDump C++ plugin | `plugin/` (its own build) |
+| `arkextract.py` | `ase/core/buf.py`, `core/save.py`, `core/props.py`, `core/customdata.py`, `model/dino.py`, `model/egg.py`, `extract.py`, `compare.py`, `commands/tamed.py` |
+| `dinodump_decode.py` | `ase/core/cryopod.py` |
+| `dinodump_build.py` | `ase/build.py` (it also reads `.extract.zip` now), `commands/build.py`, `commands/pods.py` |
+| `arkcensus`, `arkservers`, `arkstats`, `arkrank`, `arkmissing`, `arkitems`, `arkfindme`, `sort_saves`, `shadowcloud_read`, `dumpzip` | `ase/reports/*.py`, unchanged apart from imports, wrapped by `commands/r_*.py` |
+| `arkheader.py`, `arkprobe.py` | still in `scripts/research/`. Partly replaced by `ase info` |
+| `dinodump_batch.py` + `batch_config.py` | still in `server/` (Windows plugin runner) |
+| DinoDump C++ plugin | `plugin/DinoDump/` |
+
+New in the package: `info`, `classes`, `sizes`, `dump`, `m2j`, `wild`, `creatures`, `pods`.
+
+The reports are wrapped rather than rewritten. They work today, and they can be moved onto the shared reader one at a time.
 
 ## Build order
 
-1. **Restructure without changing behavior.** Move the code into `core/` and `commands/`, and keep `tamed` output byte-identical to today. The 90,382-item match is the regression test.
-2. **Generic dump:** `classes`, `sizes`, `dump CLASS`, `m2j`. Once these exist, everything else is just picking fields.
+1. ✅ **Restructure without changing behavior.** Done. `tamed` output is byte-identical to `arkextract.py` (tests/test_regression.py).
+2. ✅ **Generic dump:** `classes`, `sizes`, `dump CLASS`, `m2j`. Done.
 3. **ark-tools parity on reading:** `creatures`/`wild`, `players`, `tribes` (with structures, items, and tribe log), `cluster`, profile and tribe files.
 4. **Exporters:** jsonl, http, asb.
 5. **Writing** (hardest, last): `export` → `import`, `feed`, `modify`.

@@ -6,7 +6,7 @@ Source: `github.com/Qowyn/ark-tools` (`App.java`, `*Commands.java`, `data/*.java
 
 **Why a port is needed:** ark-tools stops at the older ASE save versions. It can't read the final v11 format (the 64-byte header extension, four out-of-line sections, and section-indexed CustomItemDatas pointers), and it loads the whole save into memory. That breaks on multi-GB saves. `arkextract.py` already handles v5–v11 and streams. This port puts the ark-tools feature set on top of that.
 
-Status key: ✅ done in our tools · 🟡 partial · ⬜ not started
+Status key: ✅ done in our tools · 🟡 partial · ⬜ not started. **These markers are the starting point (Nov 2026, before the package existed). Current status is in [PARITY.md](PARITY.md) and the README progress bars.**
 
 ---
 

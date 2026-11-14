@@ -2,9 +2,9 @@
   "_comment": "Port status of Qowyn ark-tools commands. Values: done, in-progress, partial, planned. Run: python tools/update_status.py",
   "categories": {
     "Creatures": {
-      "creatures": "partial",
+      "creatures": "done",
       "tamed": "done",
-      "wild": "planned"
+      "wild": "done"
     },
     "Players": {
       "players": "partial",
@@ -12,7 +12,7 @@
       "cluster": "planned"
     },
     "Converting": {
-      "m2j": "planned",
+      "m2j": "partial",
       "p2j": "planned",
       "t2j": "planned",
       "c2j": "planned",
@@ -26,9 +26,9 @@
       "j2s": "planned"
     },
     "Debug": {
-      "classes": "partial",
-      "dump": "planned",
-      "sizes": "planned"
+      "classes": "done",
+      "dump": "done",
+      "sizes": "done"
     },
     "Editing": {
       "feed": "planned",
@@ -43,7 +43,7 @@
     "Settings & Update": {
       "latlon": "planned",
       "update-data": "planned",
-      "version": "planned"
+      "version": "done"
     }
   },
   "beyond_ark_tools": {
@@ -55,7 +55,7 @@
     "server coverage": "done",
     "species census": "done",
     "find player across saves": "done",
-    "pod dinos fully decoded (32M pods)": "partial",
+    "pod dinos fully decoded (32M pods)": "done",
     "ShadowCloud box reader": "partial",
     "dupe detection": "planned",
     "recover (zapped dinos)": "planned",
