@@ -72,7 +72,7 @@ To update: edit `status.json`, then run `python tools/update_status.py`.
 
 A modular toolkit with the full feature set of Qowyn's ark-tools, rebuilt in Python on a v11-capable reader, plus a lot ark-tools never had.
 
-- [docs/V11_FORMAT.md](docs/V11_FORMAT.md): the v11 save format, as decoded
+- [docs/ASE_SAVE_FORMAT.md](docs/ASE_SAVE_FORMAT.md): the full ASE save format, v5–v11, with what is verified and what is still open
 - [docs/ark-tools-feature-map.md](docs/ark-tools-feature-map.md): every ark-tools command and option, with port status
 - [docs/architecture.md](docs/architecture.md): module layout, build order, and new features
 
