@@ -1,0 +1,6 @@
+{
+  "FullName": "DinoDump",
+  "Description": "Dumps tamed dinos, genealogy and cryopods to files",
+  "Version": 0.5,
+  "MinApiVersion": 3.5
+}

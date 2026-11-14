@@ -11,6 +11,20 @@ Built to archive and analyze ~400GB of official ASE server saves (2015–2023): 
 - **Builder:** dedupes dinos across saves by their permanent two-part ID, builds parent, child, and ancestor links, flags anomalies, and writes per-dino JSON plus SQLite.
 - **Analysis tools:** species census, server coverage, activity stats, rankings, missing-save reports, item counts, and finding a player across saves.
 
+## Repo layout
+
+| Folder | What's in it |
+|---|---|
+| `scripts/` | The working tools: `arkextract.py` (the v5–v11 reader) plus `arkcensus`, `arkservers`, `arkstats`, `arkrank`, `arkmissing`, `arkitems`, `arkfindme`, `shadowcloud_read`, `sort_saves`, `dumpzip` |
+| `scripts/research/` | `arkheader.py` and `arkprobe.py`, the diagnostics that cracked v11 |
+| `scripts/old/` | Early one-off tools superseded by `arkextract.py` (kept for reference) |
+| `server/` | The plugin pipeline: `dinodump_batch.py` (multi-slot runner), `batch_config.py`, `dinodump_build.py` + `dinodump_config.py` (dedupe, genealogy, SQLite), `dinodump_decode.py` (cryopod bytes) |
+| `plugin/DinoDump/` | The C++ ArkServerApi plugin. `ArkApiSDK/` inside it is the API's headers and `ArkApi.lib` (MIT, GameServersHub/Michidu) |
+| `legacy-devkit-mod/` | The first approach, a DevKit mod that printed to the server log. Replaced by the plugin |
+| `docs/` | `V11_FORMAT.md` (the format spec), `HANDOFF.md` (state of the project as of Oct 2026), the ark-tools feature map, and the architecture plan |
+
+These are the scripts as they ran in Oct 2026, imported unchanged. The modular rewrite in [docs/architecture.md](docs/architecture.md) comes next.
+
 ## Progress
 
 <!-- STATUS:START -->
@@ -30,7 +44,7 @@ Built to archive and analyze ~400GB of official ASE server saves (2015–2023): 
 
 ### Beyond ark-tools
 
-**Overall:** `███████████░░░░░░░░░`  57% (8 done, 6 planned)
+**Overall:** `███████████░░░░░░░░░`  56% (8 done, 2 partial, 6 planned)
 
 - ✅ pods / eggs / pregnancies
 - ✅ v11 save format
@@ -40,6 +54,8 @@ Built to archive and analyze ~400GB of official ASE server saves (2015–2023): 
 - ✅ server coverage
 - ✅ species census
 - ✅ find player across saves
+- 🟡 pod dinos fully decoded (32M pods)
+- 🟡 ShadowCloud box reader
 - ⬜ dupe detection
 - ⬜ recover (zapped dinos)
 - ⬜ ASB export
@@ -56,6 +72,7 @@ To update: edit `status.json`, then run `python tools/update_status.py`.
 
 A modular toolkit with the full feature set of Qowyn's ark-tools, rebuilt in Python on a v11-capable reader, plus a lot ark-tools never had.
 
+- [docs/V11_FORMAT.md](docs/V11_FORMAT.md): the v11 save format, as decoded
 - [docs/ark-tools-feature-map.md](docs/ark-tools-feature-map.md): every ark-tools command and option, with port status
 - [docs/architecture.md](docs/architecture.md): module layout, build order, and new features
 
