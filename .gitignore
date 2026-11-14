@@ -1,0 +1,26 @@
+# Save data and dumps never go in the repo
+*.ark
+*.arkprofile
+*.arktribe
+*.zip
+*.7z
+*.sqlite
+*.db
+SavedArks/
+dumps/
+cache/
+CACHE_*/
+out/
+output/
+
+# Local config (Steam IDs, names, paths)
+config.local.*
+*.local.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
