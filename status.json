@@ -1,0 +1,65 @@
+{
+  "_comment": "Port status of Qowyn ark-tools commands. Values: done, in-progress, partial, planned. Run: python tools/update_status.py",
+  "categories": {
+    "Creatures": {
+      "creatures": "partial",
+      "tamed": "done",
+      "wild": "planned"
+    },
+    "Players": {
+      "players": "partial",
+      "tribes": "partial",
+      "cluster": "planned"
+    },
+    "Converting": {
+      "m2j": "planned",
+      "p2j": "planned",
+      "t2j": "planned",
+      "c2j": "planned",
+      "l2j": "planned",
+      "s2j": "partial",
+      "j2m": "planned",
+      "j2p": "planned",
+      "j2t": "planned",
+      "j2c": "planned",
+      "j2l": "planned",
+      "j2s": "planned"
+    },
+    "Debug": {
+      "classes": "partial",
+      "dump": "planned",
+      "sizes": "planned"
+    },
+    "Editing": {
+      "feed": "planned",
+      "export": "planned",
+      "import": "planned",
+      "modify": "planned"
+    },
+    "DB": {
+      "db": "partial",
+      "db-drivers": "planned"
+    },
+    "Settings & Update": {
+      "latlon": "planned",
+      "update-data": "planned",
+      "version": "planned"
+    }
+  },
+  "beyond_ark_tools": {
+    "pods / eggs / pregnancies": "done",
+    "v11 save format": "done",
+    "cross-save dedupe": "done",
+    "genealogy graph": "done",
+    "anomaly flags": "done",
+    "server coverage": "done",
+    "species census": "done",
+    "find player across saves": "done",
+    "dupe detection": "planned",
+    "recover (zapped dinos)": "planned",
+    "ASB export": "planned",
+    "spawn strings": "planned",
+    "ASA bridge": "planned",
+    "public API push": "planned"
+  }
+}

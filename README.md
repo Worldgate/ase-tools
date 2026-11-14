@@ -11,6 +11,47 @@ Built to archive and analyze ~400GB of official ASE server saves (2015–2023): 
 - **Builder:** dedupes dinos across saves by their permanent two-part ID, builds parent, child, and ancestor links, flags anomalies, and writes per-dino JSON plus SQLite.
 - **Analysis tools:** species census, server coverage, activity stats, rankings, missing-save reports, item counts, and finding a player across saves.
 
+## Progress
+
+<!-- STATUS:START -->
+### ark-tools parity
+
+**Overall:** `███░░░░░░░░░░░░░░░░░`  13% (30 commands: 1 done, 6 partial, 23 planned)
+
+| Category | Progress | Commands |
+|---|---|---|
+| Creatures | `██████████░░░░░░░░░░`  50% | 🟡&nbsp;`creatures` ✅&nbsp;`tamed` ⬜&nbsp;`wild` |
+| Players | `███████░░░░░░░░░░░░░`  33% | 🟡&nbsp;`players` 🟡&nbsp;`tribes` ⬜&nbsp;`cluster` |
+| Converting | `█░░░░░░░░░░░░░░░░░░░`   4% | ⬜&nbsp;`m2j` ⬜&nbsp;`p2j` ⬜&nbsp;`t2j` ⬜&nbsp;`c2j` ⬜&nbsp;`l2j` 🟡&nbsp;`s2j` ⬜&nbsp;`j2m` ⬜&nbsp;`j2p` ⬜&nbsp;`j2t` ⬜&nbsp;`j2c` ⬜&nbsp;`j2l` ⬜&nbsp;`j2s` |
+| Debug | `███░░░░░░░░░░░░░░░░░`  17% | 🟡&nbsp;`classes` ⬜&nbsp;`dump` ⬜&nbsp;`sizes` |
+| Editing | `░░░░░░░░░░░░░░░░░░░░`   0% | ⬜&nbsp;`feed` ⬜&nbsp;`export` ⬜&nbsp;`import` ⬜&nbsp;`modify` |
+| DB | `█████░░░░░░░░░░░░░░░`  25% | 🟡&nbsp;`db` ⬜&nbsp;`db-drivers` |
+| Settings & Update | `░░░░░░░░░░░░░░░░░░░░`   0% | ⬜&nbsp;`latlon` ⬜&nbsp;`update-data` ⬜&nbsp;`version` |
+
+### Beyond ark-tools
+
+**Overall:** `███████████░░░░░░░░░`  57% (8 done, 6 planned)
+
+- ✅ pods / eggs / pregnancies
+- ✅ v11 save format
+- ✅ cross-save dedupe
+- ✅ genealogy graph
+- ✅ anomaly flags
+- ✅ server coverage
+- ✅ species census
+- ✅ find player across saves
+- ⬜ dupe detection
+- ⬜ recover (zapped dinos)
+- ⬜ ASB export
+- ⬜ spawn strings
+- ⬜ ASA bridge
+- ⬜ public API push
+
+✅ done · 🔨 in progress · 🟡 partial (exists in old scripts, not fully ported) · ⬜ planned. In-progress and partial count as half on the bars.
+<!-- STATUS:END -->
+
+To update: edit `status.json`, then run `python tools/update_status.py`.
+
 ## Where it's going
 
 A modular toolkit with the full feature set of Qowyn's ark-tools, rebuilt in Python on a v11-capable reader, plus a lot ark-tools never had.
